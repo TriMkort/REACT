@@ -3,8 +3,9 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
+  justify-items: flex-end;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,4 +36,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+input[type="text"]{
+  width:50%;
+  padding:10px;
 }
