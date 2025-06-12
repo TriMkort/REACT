@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, {useEffect, useMemo, useState } from 'react'
 import Empelados from './Empelados'
 
 const Gestion = () => {
@@ -8,12 +8,17 @@ const Gestion = () => {
         setNombre (e.target.value)
     }
     // const gestorInput = useRef();
-
+    useEffect (() => {
+        console.log("Vista de cambio actualizada!!: ");
+    },[nombre, pagina]);
     // useEffect (() => {
     //     console.log("La vista se ha renderizado: ")
     // })
 
-    console.log("Vista de cambio actualizada!!: ");
+    const mostrarMensaje = useMemo() => {
+        console.log("Hola que tal soy un mensaje desde el componente Empleados!!")
+    }
+
     return (
         <div>
             <h1>Nombre del gestor: {nombre}</h1>
@@ -23,7 +28,7 @@ const Gestion = () => {
             <p>Los usuarios gestionados por {nombre} vienen de jasonplacholder..</p>
             <button onClick={() => {setPagina(1)}}>Pagina 1</button> 
             <button onClick={() => {setPagina(2)}}>pagina 2</button>            
-            <Empelados pagina={pagina}/>
+            <Empelados pagina={pagina} mensaje={mostrarMensaje}/>
         </div>
     )
 }
